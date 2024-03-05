@@ -25,7 +25,7 @@
                                             <i class="fa fa-plus"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Username" name="name"
+                                    <input required type="text" class="form-control" placeholder="Username" name="name"
                                            aria-label="Username" aria-describedby="addon-wrapping">
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                             <i class="fas fa-user-alt"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter Name Here" name="secondName">
+                                    <input required type="text" class="form-control" placeholder="Enter Name Here" name="secondName">
                                 </div>
                             </div>
                             
@@ -53,7 +53,7 @@
                                             <i class="fas fa-phone"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter Phone Number" name="phone">
+                                    <input required min="10" max="13" type="text" class="form-control" placeholder="Enter Phone Number" name="phone">
                                 </div>
                             </div>
                             
@@ -64,7 +64,7 @@
                                             @
                                         </div>
                                     </div>
-                                    <input type="email" class="form-control" placeholder="Enter Email Address" name="email">
+                                    <input required type="email" class="form-control" placeholder="Enter Email Address" name="email">
                                 </div>
                             </div>
                             
@@ -75,19 +75,19 @@
                                             <i class="fas fa-briefcase"></i>
                                         </div>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Enter Workplace" name="work">
+                                    <input required type="text" class="form-control" placeholder="Enter Workplace" name="work">
                                 </div>
                             </div>
                             
                             <!-- Textarea field -->
                             <div class="form-group mb-3">
-                                <textarea name="description" id="description" class="form-control" rows="5" placeholder="Enter about here"></textarea>
+                                <textarea required name="description" id="mytextarea" class="form-control" rows="5" placeholder="Enter about here"></textarea>
                             </div>
                             
                             
                             <div class="custom-file">
                             
-                            <input type="file" name="image" />
+                            <input type="file" name="profileimage" />
                             </div>
                             
                           <div class="container text-center ">
@@ -102,6 +102,7 @@
             </div>
         </div>
     </div>
+    
 </section>
 
 
