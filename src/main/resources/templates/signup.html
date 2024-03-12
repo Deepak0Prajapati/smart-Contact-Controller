@@ -18,8 +18,8 @@
 					<div class="my-card mt-3 mb-3">
 
 						<div th:if="${session.message}"
-							th:classappend="${session.message.type}" class="alert "
-							role="alert">
+							th:classappend="${session.message.type}" class="text-center alert "
+							role="alert" cla>
 							<p th:text="${session.message.content}"></p>
 							<th:block
 								th:text="${@sessionUtilityBean.removeMessageFromSession()}"></th:block>
