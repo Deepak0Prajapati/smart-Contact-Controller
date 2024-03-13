@@ -11,6 +11,8 @@ import com.Contact.Model.Contact;
 import com.Contact.Repository.ContactRepository;
 import com.Contact.Service.ContactService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ContactServiceImpl implements ContactService {
 	
@@ -29,8 +31,10 @@ public class ContactServiceImpl implements ContactService {
 	}
 
 	@Override
+	@Transactional
 	public String deleteContact(int id) {
-		contactRepository.delete(contactRepository.findById(id).get());
+//		contactRepository.delete(contactRepository.findById(id).get());
+		contactRepository.deleteById(id);
 		return "Contact Deleted successfully";
 	}
 

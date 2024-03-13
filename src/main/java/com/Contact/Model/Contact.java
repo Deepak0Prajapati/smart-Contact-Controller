@@ -106,6 +106,14 @@ public class Contact {
 				+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + "]";
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return this.cId==((Contact)obj).getcId();
+	}
+	
+	
+
 	
 	
 	
