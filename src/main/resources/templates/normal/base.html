@@ -48,7 +48,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" th:href="@{/}">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/user/index}"><span th:text="${user.name}"></span></a></li>
+						th:href="@{/user/profile}"><span th:text="${user.name}"></span></a></li>
 					<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Logout</a></li>
 				</ul>
 			</div>
@@ -61,7 +61,7 @@
 		<a th:href="@{/user/show-contacts/0}" class="item"><i class="fas fa-id-card-alt"></i>ViewContacts</a> 
 		<a href="/user/add-contact" class="item"><i class="fas fa-pencil-alt"></i>Add Contacts</a> 
 		<a th:href="@{/user/profile}" class="item"><i class="fas fa-user-circle"></i>Your Profile</a> 
-		<a href="" class="item"><i class="fas fa-cogs"></i>Settings</a> 
+		<!-- <a href="" class="item"><i class="fas fa-cogs"></i>Settings</a>  -->
 		<a th:href="@{/logout}" class="item"><i class="fas fa-sign-out-alt"></i>Logout</a>
 		<div class="divider"></div>
 	</div>
