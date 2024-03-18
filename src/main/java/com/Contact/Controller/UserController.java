@@ -117,7 +117,7 @@ public class UserController {
 		User user = userRepository.findByEmail(name);
 		Contact contact = contactServiceImpl.findByID(cID);
 		if (user.getId() == contact.getUser().getId()) {
-			model.addAttribute("contact", contact);
+			model.addAttribute("contact", contact); 
 
 		}
 

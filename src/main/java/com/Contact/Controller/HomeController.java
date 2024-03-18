@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.Contact.Model.EmailRequest;
 import com.Contact.Model.User;
+import com.Contact.ServiceImpl.EmailSender;
 import com.Contact.ServiceImpl.UserServiceImpl;
 import com.Contact.helper.Message;
 
@@ -26,6 +28,9 @@ public class HomeController {
 	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
+	
+	@Autowired
+	private EmailSender emailSender;
 	
 	
 	@GetMapping("/")
@@ -78,6 +83,15 @@ public class HomeController {
 			model.addAttribute("user",new User());
 			
 			session.setAttribute("message", new Message("Successfully registered","alert-success"));
+			
+			String email = user2.getEmail();
+			String subject="registeration success";
+			String message="You are successfully registered!! Visit this link to see your profile http://localhost:8080/user/profile ";
+			EmailRequest req=new EmailRequest(email,subject,message);
+			
+			emailSender.sendEmail(req);
+			
+			
 			return "signup";
 			
 		}catch (Exception e) {

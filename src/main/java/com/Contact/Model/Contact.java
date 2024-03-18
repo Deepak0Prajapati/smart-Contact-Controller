@@ -1,5 +1,7 @@
 package com.Contact.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,7 +24,9 @@ public class Contact {
 	private String image;
 	@Column(length = 5000)
 	private String description;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private User user;
 	public Contact() {
 		super();

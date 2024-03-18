@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.Contact.Model.Contact;
+import com.Contact.Model.User;
 import com.Contact.Repository.ContactRepository;
 import com.Contact.Service.ContactService;
 
@@ -43,6 +44,13 @@ public class ContactServiceImpl implements ContactService {
 		Contact save = contactRepository.save(contact);
 		// TODO Auto-generated method stub
 		return save;
+	}
+
+	@Override
+	public List<Contact> findByNameContainingAndUser(String keywords, User user) {
+		List<Contact> list = contactRepository.findByNameContainingAndUser(keywords, user);
+//		System.out.println(list);
+		return list;
 	}
 
 	
