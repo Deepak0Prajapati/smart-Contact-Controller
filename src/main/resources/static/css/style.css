@@ -98,3 +98,15 @@ body {
 	border-radius: 50%;
 	
 }
+.search-result{
+	position: absolute;
+	background-color: white;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid gray;
+	display: none;
+}
+
+.search-container{
+	position: relative;
+}

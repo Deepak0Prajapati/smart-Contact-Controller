@@ -117,7 +117,7 @@ public class UserController {
 		User user = userRepository.findByEmail(name);
 		Contact contact = contactServiceImpl.findByID(cID);
 		if (user.getId() == contact.getUser().getId()) {
-			model.addAttribute("contact", contact);
+			model.addAttribute("contact", contact); 
 
 		}
 
@@ -127,19 +127,19 @@ public class UserController {
 
 	@GetMapping("/delete/{cID}")
 	public String deleteContact(@PathVariable Integer cID, Model model, Principal principal, HttpSession session) {
-		Contact contact = contactServiceImpl.findByID(cID);
-		User user = userRepository.findByEmail(principal.getName());
+	    Contact contact = contactServiceImpl.findByID(cID);
+	    User user = userRepository.findByEmail(principal.getName());
 
-		if (user.getId() == contact.getUser().getId()) {
-			contact.setUser(null);
+	    if (user.getId() == contact.getUser().getId()) {
+	        user.getContacts().remove(contact);
+	        this.userRepository.save(user);
+	    }
 
-			String deleteContact = contactServiceImpl.deleteContact(cID);
-		}
+	    session.setAttribute("message", new Message("Contact deleted successfully...", "success"));
 
-		session.setAttribute("message", new Message("Contact deleed successfully...", "success"));
-
-		return "redirect:/user/show-contacts/0";
+	    return "redirect:/user/show-contacts/0";
 	}
+
 
 	@PostMapping("/open-contact/{cId}")
 	public String updateForm(@PathVariable int cId, Model model) {
@@ -205,5 +205,11 @@ public class UserController {
 
 		return "redirect:/user/"+contact.getcId()+"/contact";
 	}
+	
+	@GetMapping("/profile")
+	public String yourProfile() {
+		return "normal/profile";
+	}
 
 }
+

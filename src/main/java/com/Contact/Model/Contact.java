@@ -1,5 +1,7 @@
 package com.Contact.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -12,7 +14,7 @@ import jakarta.persistence.ManyToOne;
 public class Contact {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int cId;
 	private String name;
 	private String secondName;
@@ -22,7 +24,9 @@ public class Contact {
 	private String image;
 	@Column(length = 5000)
 	private String description;
+	
 	@ManyToOne(cascade = CascadeType.ALL)
+	@JsonIgnore
 	private User user;
 	public Contact() {
 		super();
@@ -105,6 +109,14 @@ public class Contact {
 		return "Contact [cId=" + cId + ", name=" + name + ", secondName=" + secondName + ", work=" + work + ", email="
 				+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return this.cId==((Contact)obj).getcId();
+	}
+	
+	
 
 	
 	
