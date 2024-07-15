@@ -86,7 +86,8 @@ public class HomeController {
 			
 			String email = user2.getEmail();
 			String subject="registeration success";
-			String message="You are successfully registered!! Visit this link to see your profile http://localhost:8080/user/profile ";
+			//String message="You are successfully registered!! Visit this link to see your profile http://localhost:8080/user/profile ";
+			String message="You are successfully registered!! Visit this link to see your profile https://smart-contact-controller-production.up.railway.app/user/profile ";
 			EmailRequest req=new EmailRequest(email,subject,message);
 			
 			emailSender.sendEmail(req);
