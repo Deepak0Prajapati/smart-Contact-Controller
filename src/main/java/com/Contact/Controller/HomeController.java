@@ -1,4 +1,4 @@
-package com.Contact.Controller;
+ package com.Contact.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -95,7 +95,6 @@ public class HomeController {
 			return "signup";
 			
 		}catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 			model.addAttribute("user",user);
 			session.setAttribute("message", new Message("something went wrong"+e.getMessage(),"alert-danger"));

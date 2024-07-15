@@ -42,7 +42,6 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public Contact createContact(Contact contact) {
 		Contact save = contactRepository.save(contact);
-		// TODO Auto-generated method stub
 		return save;
 	}
 
