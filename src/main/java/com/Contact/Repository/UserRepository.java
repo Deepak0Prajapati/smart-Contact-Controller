@@ -10,7 +10,7 @@ import com.Contact.Model.User;
 public interface UserRepository extends JpaRepository<User, Integer> {
 	
 	public User findByEmail(String email);
-	@Query(nativeQuery = true,value = "SELECT * FROM User WHERE email LIKE %:name%")
+	@Query(nativeQuery = true,value = "SELECT * FROM user WHERE email LIKE %:name%")
 	public User findByName(String name);
 	
 	
