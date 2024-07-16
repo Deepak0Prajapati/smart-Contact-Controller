@@ -75,7 +75,7 @@ public class UserController {
 				contact.setImage("man.png");
 			} else {
 				contact.setImage(file.getOriginalFilename());
-				File file2 = new ClassPathResource("static/img").getFile();
+				File file2 = new ClassPathResource("/img").getFile();
 
 				Path path = Paths.get(file2.getAbsolutePath() + File.separator + file.getOriginalFilename());
 				Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
